@@ -10,10 +10,10 @@ body {
 }
 
 .contenedor {
-  max-width: 950px;
-  margin: 30px auto;
+  width: min(100%, 950px);
+  margin: 16px auto;
   background-color: white;
-  padding: 24px;
+  padding: 16px;
   border-radius: 14px;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 }
