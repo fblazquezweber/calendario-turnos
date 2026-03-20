@@ -60,15 +60,15 @@ function renderizarCalendario() {
     const textoEstado = document.createElement("div");
     textoEstado.className = "estado";
     textoEstado.textContent =
-      estado === "trabajo" ? "Trabajo" :
-      estado === "libre" ? "Libre" : "Sin marcar";
+      estado === "trabajo" ? "Francisco" :
+      estado === "libre" ? "Miguel" :
+      "Sin marcar";
 
     celda.appendChild(numero);
     celda.appendChild(textoEstado);
 
     celda.addEventListener("click", () => {
       let nuevoEstado;
-
       if (estado === "vacio") {
         nuevoEstado = "trabajo";
       } else if (estado === "trabajo") {
@@ -76,16 +76,14 @@ function renderizarCalendario() {
       } else {
         nuevoEstado = "vacio";
       }
-
       if (nuevoEstado === "vacio") {
         delete datosMes[dia];
       } else {
         datosMes[dia] = nuevoEstado;
       }
-
       guardarDatosMes(anio, mes, datosMes);
       renderizarCalendario();
-    });
+    });   
 
     calendario.appendChild(celda);
   }
@@ -126,9 +124,9 @@ exportarTexto.addEventListener("click", () => {
     let textoEstado = "";
 
     if (estado === "trabajo") {
-      textoEstado = "Trabajo";
+      textoEstado = "Francisco";
     } else if (estado === "libre") {
-      textoEstado = "Libre";
+      textoEstado = "Miguel";
     } else {
       textoEstado = "Sin marcar";
     }
