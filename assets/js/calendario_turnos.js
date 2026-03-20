@@ -69,7 +69,6 @@ function renderizarCalendario() {
 
     celda.addEventListener("click", () => {
       let nuevoEstado;
-
       if (estado === "vacio") {
         nuevoEstado = "trabajo";
       } else if (estado === "trabajo") {
@@ -77,16 +76,14 @@ function renderizarCalendario() {
       } else {
         nuevoEstado = "vacio";
       }
-
       if (nuevoEstado === "vacio") {
         delete datosMes[dia];
       } else {
         datosMes[dia] = nuevoEstado;
       }
-
       guardarDatosMes(anio, mes, datosMes);
       renderizarCalendario();
-    });
+    });   
 
     calendario.appendChild(celda);
   }
