@@ -5,6 +5,7 @@ const mesSiguiente = document.getElementById("mesSiguiente");
 const limpiarMes = document.getElementById("limpiarMes");
 const exportarTexto = document.getElementById("exportarTexto");
 const salidaTexto = document.getElementById("salidaTexto");
+const bloquearCalendario = document.getElementById("bloquearCalendario");
 
 const nombresMeses = [
   "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
@@ -14,6 +15,7 @@ const nombresMeses = [
 let fechaActual = new Date();
 let mes = fechaActual.getMonth();
 let anio = fechaActual.getFullYear();
+let calendarioBloqueado = false;
 
 function claveMes(anio, mes) {
   return `turnos-${anio}-${mes}`;
@@ -66,24 +68,27 @@ function renderizarCalendario() {
 
     celda.appendChild(numero);
     celda.appendChild(textoEstado);
-
+    
     celda.addEventListener("click", () => {
-      let nuevoEstado;
-      if (estado === "vacio") {
-        nuevoEstado = "trabajo";
-      } else if (estado === "trabajo") {
-        nuevoEstado = "libre";
-      } else {
-        nuevoEstado = "vacio";
-      }
-      if (nuevoEstado === "vacio") {
-        delete datosMes[dia];
-      } else {
-        datosMes[dia] = nuevoEstado;
-      }
-      guardarDatosMes(anio, mes, datosMes);
-      renderizarCalendario();
-    });   
+      if (calendarioBloqueado) {
+      return;
+    }
+    let nuevoEstado;
+    if (estado === "vacio") {
+      nuevoEstado = "trabajo";
+    } else if (estado === "trabajo") {
+      nuevoEstado = "libre";
+    } else {
+      nuevoEstado = "vacio";
+    }
+    if (nuevoEstado === "vacio") {
+      delete datosMes[dia];
+    } else {
+      datosMes[dia] = nuevoEstado;
+    }
+    guardarDatosMes(anio, mes, datosMes);
+    renderizarCalendario();
+  });  
 
     calendario.appendChild(celda);
   }
@@ -135,6 +140,16 @@ exportarTexto.addEventListener("click", () => {
   }
 
   salidaTexto.value = texto;
+});
+
+bloquearCalendario.addEventListener("click", () => {
+  calendarioBloqueado = !calendarioBloqueado;
+
+  if (calendarioBloqueado) {
+    bloquearCalendario.textContent = "Desbloquear calendario";
+  } else {
+    bloquearCalendario.textContent = "Bloquear calendario";
+  }
 });
 
 renderizarCalendario();
