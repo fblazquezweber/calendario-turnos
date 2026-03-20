@@ -1,1 +1,199 @@
+* {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #222;
+}
+
+.contenedor {
+  max-width: 950px;
+  margin: 30px auto;
+  background-color: white;
+  padding: 24px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.barra-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.barra-superior button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1f6feb;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.barra-superior button:hover {
+  background-color: #1557b0;
+}
+
+#tituloMes {
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+.leyenda {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.leyenda div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
+.color.trabajo {
+  background-color: #ffd6d6;
+}
+
+.color.libre {
+  background-color: #d6f5d6;
+}
+
+.color.vacio {
+  background-color: #f0f0f0;
+}
+
+.dias-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.dias-semana div {
+  padding: 10px 0;
+  background-color: #e9eef5;
+  border-radius: 8px;
+}
+
+.calendario {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.dia {
+  min-height: 90px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #d8dee4;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+.dia:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.dia .numero {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.dia .estado {
+  font-size: 14px;
+}
+
+.dia.trabajo {
+  background-color: #ffd6d6;
+}
+
+.dia.libre {
+  background-color: #d6f5d6;
+}
+
+.dia.vacio {
+  background-color: #f0f0f0;
+}
+
+.dia.inactivo {
+  background-color: transparent;
+  border: none;
+  cursor: default;
+  box-shadow: none;
+}
+
+.acciones {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.acciones button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2d333b;
+  color: white;
+  cursor: pointer;
+}
+
+.acciones button:hover {
+  background-color: #1f2328;
+}
+
+#salidaTexto {
+  width: 100%;
+  min-height: 180px;
+  margin-top: 18px;
+  padding: 12px;
+  resize: vertical;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  .dia {
+    min-height: 75px;
+    padding: 8px;
+  }
+
+  .dia .estado {
+    font-size: 12px;
+  }
+
+  .barra-superior {
+    flex-wrap: wrap;
+  }
+}
