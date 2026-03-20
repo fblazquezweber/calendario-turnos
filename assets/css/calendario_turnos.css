@@ -197,3 +197,59 @@ h1 {
     flex-wrap: wrap;
   }
 }
+
+@media (max-width: 700px) {
+  .dias-semana,
+  .calendario {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+  .dias-semana div,
+  .dia {
+    min-width: 0;
+  }
+
+  .dia {
+    min-height: 70px;
+    padding: 6px;
+  }
+
+  .dia .numero {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .dia .estado {
+    font-size: 10px;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+
+  .dias-semana div {
+    padding: 8px 0;
+    font-size: 12px;
+  }
+
+  .barra-superior {
+    flex-wrap: wrap;
+  }
+
+  .barra-superior button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  #tituloMes {
+    font-size: 18px;
+  }
+
+  .leyenda {
+    gap: 12px;
+    font-size: 12px;
+  }
+
+  .acciones button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}

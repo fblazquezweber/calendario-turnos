@@ -60,8 +60,9 @@ function renderizarCalendario() {
     const textoEstado = document.createElement("div");
     textoEstado.className = "estado";
     textoEstado.textContent =
-      estado === "trabajo" ? "Trabajo" :
-      estado === "libre" ? "Libre" : "Sin marcar";
+      estado === "trabajo" ? "Fran" :
+      estado === "libre" ? "Miguel" :
+      "Sin marcar";
 
     celda.appendChild(numero);
     celda.appendChild(textoEstado);
@@ -124,11 +125,11 @@ exportarTexto.addEventListener("click", () => {
   for (let dia = 1; dia <= ultimoDia; dia++) {
     const estado = datosMes[dia] || "sin marcar";
     let textoEstado = "";
-
+    
     if (estado === "trabajo") {
-      textoEstado = "Trabajo";
+      textoEstado = "Fran";
     } else if (estado === "libre") {
-      textoEstado = "Libre";
+      textoEstado = "Miguel";
     } else {
       textoEstado = "Sin marcar";
     }
